@@ -13,9 +13,16 @@ require "Casting.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cinema POO</title>
 </head>
-<body>
+    <body>
+    <?php
+
+    $dureeFilm = new DateTime('2023-07-15 14:30:00'); // Exemple d'objet DateTime représentant la durée du film
+    $duree_en_minutes->calculDuree($dureeFilm);
+    echo "La durée du film est de $duree_en_minutes minutes.";
+
+    ?>
     
-</body>
+    </body>
 </html>

@@ -8,12 +8,14 @@ class Film {
     private string $synopsisFilm;
     private array $castings;
 
+    // Constructeur
     public function __construct(string $titre, string $dateDeSortie, int $dureeFilm, string $realisateurFilm, string $synopsisFilm) {
         $this->titre = $titre;
         $this->dateDeSortie = new DateTime($dateDeSortie);
+        $this->dureeFilm = new DateTime($dureeFilm);
         $this->realisateurFilm = $realisateurFilm;
         $this->synopsisFilm = $synopsisFilm;
-
+        // tableau vide du casting
         $this->castings = [];
     }
 
@@ -29,12 +31,52 @@ class Film {
 
     // Date de sortie
     public function getDateDeSortie() {
-        return $this->dateDeSortie;
+        return $this->dateDeSortie->format('d-m-Y');
     }
 
     public function setDateDeSortie($dateDeSortie) {
-        $this->dateDeSortie = $dateDeSortie;
+        $this->dateDeSortie = $dateDeSortie->format('d-m-Y');
         return $this;
+    }
+
+    // Durée du film
+    public function getDureeFilm() {
+        return $this->dureeFilm->format('i'); // format en minutes
+    }
+
+    public function setDureeFilm($dureeFilm) {
+        $this->dureeFilm = $dureeFilm->format('i');
+        return $this;
+    }
+
+    // Réalisateur du film
+    public function getRealisateurFilm() {
+        return $this->realisateurFilm;
+    }
+
+    public function setRealisateurFilm($realisateurFilm) {
+        $this->realisateurFilm = $realisateurFilm;
+        return $this;
+    }
+
+    // Synopsis du film
+    public function getSynopsisFilm() {
+        return $this->synopsisFilm;
+    }
+
+    public function setSynopsisFilm($synopsisFilm) {
+        $this->synopsisFilm = $synopsisFilm;
+        return $this;
+    }
+
+    // Méthodes
+    public function calculDuree() {
+        // 1H = 60 min donc on par exemple Batman de Tim Burton dure 2h06min
+        // (2h x 60min) + 6min
+        $dateActuelle = new DateTime();
+        $difference = $dateActuelle->date_diff($dureeFilm);
+        $dureeMinutes = $difference-> h * 60 + $difference->i;
+        return $dureeMinutes;
     }
 
 }
