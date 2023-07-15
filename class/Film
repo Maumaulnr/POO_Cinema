@@ -70,13 +70,18 @@ class Film {
     }
 
     // Méthodes
-    public function calculDuree() {
+    public function calculDuree(DateTime $dureeFilm) {
         // 1H = 60 min donc on par exemple Batman de Tim Burton dure 2h06min
         // (2h x 60min) + 6min
         $dateActuelle = new DateTime();
-        $difference = $dateActuelle->date_diff($dureeFilm);
+        $difference = $dateActuelle->diff($dureeFilm);
         $dureeMinutes = $difference-> h * 60 + $difference->i;
         return $dureeMinutes;
+    }
+
+    // on veut récupérer toutes les informations sur le film
+    public function getInfosFilm() {
+        return $this->getTitre(). " ". $this->getDateDeSortie(). " ".$this->calculDuree(). " ". $this->getRealisateurFilm(). " ". $this->getSynopsisFilm();
     }
 
 }
