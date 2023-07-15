@@ -1,0 +1,42 @@
+<?php
+
+class Film {
+    private string $titre;
+    private DateTime $dateDeSortie;
+    private DateTime $dureeFilm;
+    private string $realisateurFilm;
+    private string $synopsisFilm;
+    private array $castings;
+
+    public function __construct(string $titre, string $dateDeSortie, int $dureeFilm, string $realisateurFilm, string $synopsisFilm) {
+        $this->titre = $titre;
+        $this->dateDeSortie = new DateTime($dateDeSortie);
+        $this->realisateurFilm = $realisateurFilm;
+        $this->synopsisFilm = $synopsisFilm;
+
+        $this->castings = [];
+    }
+
+    // Titre
+    public function getTitre() {
+        return $this->titre;
+    }
+
+    public function setTitre($titre) {
+        $this->titre = $titre;
+        return $this;
+    }
+
+    // Date de sortie
+    public function getDateDeSortie() {
+        return $this->dateDeSortie;
+    }
+
+    public function setDateDeSortie($dateDeSortie) {
+        $this->dateDeSortie = $dateDeSortie;
+        return $this;
+    }
+
+}
+
+?>
