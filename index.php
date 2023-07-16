@@ -57,6 +57,8 @@ require 'Casting.php';
     // On veut lister des acteurs ayant incarné un rôle précis
     // ex: les acteurs ayant joué le rôle de Batman : Michael Keaton, Val Kilmer, George Clooney, ...
     $film1->afficherActeurs();
+    $film2->afficherActeurs();
+    $film3->afficherActeurs();
 
 
     // On veut lister le casting d'un film
@@ -66,17 +68,22 @@ require 'Casting.php';
 
     // On veut lister les films par genre
     // ex : le genre SF est associé à X films : Star Wars, Blade Runner, ...
-    $acteur1->aff
+    // $acteur1->afficherGenreFilms();
+    // $acteur2->afficherGenreFilms();
+    // $acteur3->afficherGenreFilms();
 
 
     // On veut lister la filmographie d'un acteur
     // Dans quel film a-t-il joué?
-
+    $acteur1->afficherFilms();
+    $acteur2->afficherFilms();
+    $acteur3->afficherFilms();
 
 
     // On veut lister la filmographie d'un réalisateur
     // Quels sont les films qu'a réalisé ce réalisateur?
     $realisateur1->afficherFilms();
+    $realisateur2->afficherFilms();
 
 
 

@@ -24,8 +24,8 @@ class Acteur extends Personne {
        echo $this->getPrenom(). " ". $this->getNom();
 
        // Pour chaque film, ajouter l'acteur
-       foreach ($this->films as $film) {
-        echo $film;
+       foreach ($this->films as $acteur) {
+        echo $acteur;
        }
     }
 

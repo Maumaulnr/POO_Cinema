@@ -29,12 +29,12 @@ class Genre {
     }
 
     // afficher une liste de films par genre avec leur titre
-    public function afficherGenreFilms() {
+    public function afficherGenreFilms(string $genreFilm) {
         echo $this->genreFilm;
         // Pour chaque genre, afficher le titre
-        foreach ($this->films as $titre) {
-            echo $this->getTitre(). "<br>";
-        }
+        // foreach ($this->films as $titre) {
+        //     echo $this->getTitre(). "<br>";
+        // }
     }
 }
 
