@@ -71,25 +71,26 @@ class Film {
 
     // Méthodes
 
-    // fonction pour calculer la durée en minutes
-    public function calculDuree(int $heures, int $minutes) {
-        // 1H = 60 min donc on par exemple Batman de Tim Burton dure 2h06min
-        // (2h x 60min) + 6min
-        $dureeMinutes = $heures * 60 + $minutes;
-        return $dureeMinutes;
+    // // fonction pour calculer la durée en minutes
+    // public function calculDuree(int $minutes) {
+    //     // 1H = 60 min donc on par exemple Batman de Tim Burton dure 2h06min
+    //     // (2h x 60min) + 6min
+    //     $heures = $dureeMinutes;
+    //     $dureeMinutes = $heures * 60 + $minutes;
+    //     return $dureeMinutes;
         
-        // Pour chaque film et leur durée, transformer chaque durée de film en minutes
-        foreach ($films as $film => $dureeFilm) {
-            $heures = $dureeFilm['heures'];
-            $minutes = $dureeFilm['minutes'];
-            $dureeTotale = calculDuree($heures, $minutes);
-        }
-    }
+    //     // Pour chaque film et leur durée, transformer chaque durée de film en minutes
+    //     foreach ($films as $film => $dureeFilm) {
+    //         $heures = $dureeFilm['heures'];
+    //         $minutes = $dureeFilm['minutes'];
+    //         $dureeTotale = calculDuree($minutes);
+    //     }
+    // }
 
     
     // on veut récupérer toutes les informations sur le film
     public function getInfosFilm() {
-        return $this->getTitre(). " ". $this->getDateDeSortie(). " ".$this->calculDuree('2h', '6min'). " ". $this->getRealisateurFilm(). " ". $this->getSynopsisFilm();
+        return $this->getTitre(). " ". $this->getDateDeSortie(). " ".$this->getDureeFilm(). " ". $this->getRealisateurFilm(). " ". $this->getSynopsisFilm();
     }
 
     // On ajoute le casting au film
