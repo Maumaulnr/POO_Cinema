@@ -4,18 +4,19 @@ class Film {
     private string $titre;
     private DateTime $dateDeSortie;
     private DateTime $dureeFilm;
-    private string $realisateurFilm;
+    private Realisateur $realisateurFilm;
     private string $synopsisFilm;
     private array $castings;
 
     // Constructeur
-    public function __construct(string $titre, string $dateDeSortie, int $dureeFilm, string $realisateurFilm, string $synopsisFilm) {
+    public function __construct(string $titre, string $dateDeSortie, int $dureeFilm, Realisateur $realisateurFilm, string $synopsisFilm) {
         $this->titre = $titre;
         $this->dateDeSortie = new DateTime($dateDeSortie);
         $this->dureeFilm = new DateTime($dureeFilm);
         $this->realisateurFilm = $realisateurFilm;
+        $realisateurFilm->ajouterFilmRealisePar($this);
         $this->synopsisFilm = $synopsisFilm;
-        // tableau vide du casting
+        // tableau vide des castings
         $this->castings = [];
     }
 
@@ -50,7 +51,7 @@ class Film {
     }
 
     // Réalisateur du film
-    public function getRealisateurFilm() : string {
+    public function getRealisateurFilm() : Realisateur {
         return $this->realisateurFilm;
     }
 
@@ -89,13 +90,14 @@ class Film {
 
     
     // on veut récupérer toutes les informations sur le film
-    public function getInfosFilm() {
-        return $this->getTitre(). " ". $this->getDateDeSortie(). " ".$this->getDureeFilm(). " ". $this->getRealisateurFilm(). " ". $this->getSynopsisFilm();
-    }
+    public function afficherActeurs() {
+        echo $this->getTitre(). "<br>";
 
-    // On ajoute le casting au film
-    public function ajouterCasting(array $castings) {
-        $this->castings[] = $castings;
+        // Pour chaque casting, afficher l'acteur et son rôle
+        foreach ($this->castings as $acteur => $role) {
+            echo "Acteur : ". $acteur. "<br>";
+            echo "Personnage : ". $role. "<br>";
+        }
     }
 
     // Méthode magique __toString

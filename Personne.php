@@ -5,15 +5,12 @@ class Personne {
     private string $prenom;
     private string $sexe;
     private DateTime $dateDeNaissance;
-    private array $films;
 
     public function __construct(string $nom, string $prenom, string $sexe, string $dateDeNaissance) {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->sexe = $sexe;
         $this->dateDeNaissance = new DateTime($dateDeNaissance);
-        // tableau vide pour les films
-        $this->films = [];
     }
 
     // Getter et setter
@@ -69,20 +66,9 @@ class Personne {
         return $difference->y;
     }
 
-    // On ajoute un film à chaque boucle
-    public function ajouterFilm(Film $film) {
-        $this->films[] = $film;
-
-        foreach ($this->films as $film) {
-            $films = $film->getInfosFilm();
-        }
-
-        return $films;
-    }
-
     // On récupère les informations sur le nom et prénom de la personne
     public function getInfosTousLesFilms() {
-        $films = $this->getNom(). " ". $this->getPrenom(). "<br>";
+        return $this->getNom(). " ". $this->getPrenom(). "<br>";
     }
 }
 
