@@ -2,10 +2,12 @@
 
 class Genre {
     private string $genreFilm;
+    private array $films;
 
     // Constructeur
     public function __construct(string $genreFilm) {
         $this->genreFilm = $genreFilm;
+        $this->films = [];
     }
 
     // Getter et setter GenreFilm
@@ -19,8 +21,20 @@ class Genre {
     }
 
     // Méthodes
-    public function getInfosFilm() {
-        return $this->getGenreFilm();
+
+    // ajouter un film à un tableau films
+    public function ajouterFilms(Film $film) {
+        $this->films[] = $film;
+
+    }
+
+    // afficher une liste de films par genre avec leur titre
+    public function afficherGenreFilms() {
+        echo $this->genreFilm;
+        // Pour chaque genre, afficher le titre
+        foreach ($this->films as $titre) {
+            echo $this->getTitre(). "<br>";
+        }
     }
 }
 
