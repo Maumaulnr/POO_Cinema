@@ -18,9 +18,11 @@ require "Casting.php";
     <body>
     <?php
 
-    $dureeFilm = new DateTime('2023-07-15 14:30:00'); // Exemple d'objet DateTime représentant la durée du film
-    $duree_en_minutes->calculDuree($dureeFilm);
-    echo "La durée du film est de $duree_en_minutes minutes.";
+    // $dureeFilmEnHeures = 2;
+    // $dureeFilmEnMinutes = 6;
+
+    // $dureeFilmEnMinutesTotales = calculDuree($dureeFilmEnHeures, $dureeFilmEnMinutes);
+    // echo $dureeFilmEnMinutesTotales;
 
     ?>
     

@@ -1,0 +1,22 @@
+<?php
+
+class Realisateur {
+    private string $filmDirigesPar;
+
+    // Constructeur
+    public function __construct(string $filmDirigesPar) {
+        $this->filmDirigesPar= $filmDirigesPar;
+    }
+
+    // Getter et setter FilmDirigesPar
+    public function getFilmDirigesPar() : string {
+        return $this->filmDirigesPar;
+    }
+
+    public function setFilmDirigesPar($filmDirigesPar) {
+        $this->filmDirigesPar = $filmDirigesPar;
+        return $this;
+    }
+}
+
+?>
