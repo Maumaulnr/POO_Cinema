@@ -25,19 +25,25 @@ class Role {
 
     // Méthodes
 
-    // Récupérer les informations du role
-    public function getInfosFilm() {
-        return $this->getRole();
-    }
-
     // Ajouter le role au casting
     public function ajouterCasting(Casting $castings) {
         $this->castings[] = $castings;
     }
 
+    // on veut afficher toutes les informations sur les rôles
+    public function afficherRole() {
+        echo $this->role. "<br>";
+
+        // Pour chaque casting, afficher l'acteur et son rôle
+        foreach ($this->castings as $role) {
+            echo "Titre : ". $this->titre. "<br>";
+            echo "Personnage : ". $this->role. "<br>";
+        }
+    }
+
     // Méthode magique __toString
     public function __toString() {
-        return $this->getRole(). " ";
+        return $this->getRole();
     }
 }
 

@@ -3,7 +3,7 @@
 class Film {
     private string $titre;
     private DateTime $dateDeSortie;
-    private DateTime $dureeFilm;
+    private int $dureeFilm;
     private Realisateur $realisateurFilm;
     private string $synopsisFilm;
     private array $castings;
@@ -12,9 +12,9 @@ class Film {
     public function __construct(string $titre, string $dateDeSortie, int $dureeFilm, Realisateur $realisateurFilm, string $synopsisFilm) {
         $this->titre = $titre;
         $this->dateDeSortie = new DateTime($dateDeSortie);
-        $this->dureeFilm = new DateTime($dureeFilm);
+        $this->dureeFilm = $dureeFilm;
         $this->realisateurFilm = $realisateurFilm;
-        $realisateurFilm->ajouterFilmRealisePar($this);
+        $realisateurFilm->ajouterRealisateurFilm($this);
         $this->synopsisFilm = $synopsisFilm;
         // tableau vide des castings
         $this->castings = [];
@@ -42,11 +42,11 @@ class Film {
 
     // Durée du film
     public function getDureeFilm() : int {
-        return $this->dureeFilm->format('i'); // format en minutes
+        return $this->dureeFilm; // format en minutes
     }
 
     public function setDureeFilm($dureeFilm) {
-        $this->dureeFilm = $dureeFilm->format('i');
+        $this->dureeFilm = $dureeFilm;
         return $this;
     }
 
@@ -89,9 +89,9 @@ class Film {
     // }
 
     
-    // on veut récupérer toutes les informations sur le film
-    public function afficherActeurs() {
-        echo $this->getTitre(). "<br>";
+    // on veut afficher toutes les informations sur les rôles
+    public function afficherFilms() {
+        echo "Infos films : <br>". $this->getTitre(). " ( ". $this->getDateDeSortie(). " ), Durée : ". $this->getDureeFilm(). " min, Réalisateur : ". $this->getRealisateurFilm(). " <br> ". $this->getSynopsisFilm(). "<br><br>";
 
         // Pour chaque casting, afficher l'acteur et son rôle
         foreach ($this->castings as $acteur => $role) {
@@ -100,9 +100,14 @@ class Film {
         }
     }
 
+    // public function afficherActeurs() {
+    //     echo $this->getNom(). " ". getPrenom(). " ".
+    // }
+
+
     // Méthode magique __toString
     public function __toString() {
-        return $this->getTitre(). "<br>";
+        return $this->titre. " ". $this->dateDeSortie. " ". $this->dureeFilm. " ". $this->realisateurFilm. " ". $this->synopsisFilm;
     }
 
 }
