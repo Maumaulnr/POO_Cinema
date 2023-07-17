@@ -88,28 +88,26 @@ class Film {
     //     }
     // }
 
+    public function ajouterCasting(Casting $casting)
+    {
+        $this->castings[]=$casting;
+    }
     
     // on veut afficher toutes les informations sur les rôles
     public function afficherFilms() {
         echo "Infos films : <br>". $this->getTitre(). " ( ". $this->getDateDeSortie(). " ), Durée : ". $this->getDureeFilm(). " min, Réalisateur : ". $this->getRealisateurFilm(). " <br> ". $this->getSynopsisFilm(). "<br><br>";
 
-        // Pour chaque casting, afficher l'acteur et son rôle
-        foreach ($this->castings as $acteur => $role) {
-            echo "Acteur : ". $acteur. "<br>";
-            echo "Personnage : ". $role. "<br>";
-        }
+        // // Pour chaque casting, afficher l'acteur et son rôle
+        // foreach ($this->castings as $acteur => $role) {
+        //     echo "Acteur : ". $acteur. "<br>";
+        //     echo "Personnage : ". $role. "<br>";
+        // }
     }
-
-    // public function afficherActeurs() {
-    //     echo $this->getNom(). " ". getPrenom(). " ".
-    // }
-
 
     // Méthode magique __toString
     public function __toString() {
-        return $this->titre. " ". $this->dateDeSortie. " ". $this->dureeFilm. " ". $this->realisateurFilm. " ". $this->synopsisFilm;
+        return $this->getTitre(). " ". $this->getDateDeSortie(). " ". $this->getDureeFilm(). " ". $this->getRealisateurFilm(). " ". $this->getSynopsisFilm();
     }
-
 }
 
 ?>

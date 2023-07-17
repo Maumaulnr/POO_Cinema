@@ -67,13 +67,13 @@ class Personne {
     }
 
     // On récupère les informations sur le nom et prénom de la personne
-    public function getInfosPersonnes() {
-        return $this->getNom(). " ". $this->getPrenom(). " ". $this->getSexe(). " ". $this->getDateDeNaissance(). "<br>";
-    }
+    // public function getInfosPersonnes() {
+    //     return $this->getNom(). " ". $this->getPrenom(). " ". $this->getSexe(). " ". $this->getDateDeNaissance(). "<br>";
+    // }
 
     // Méthode magique __toString
     public function __toString() {
-        return $this->nom. " ". $this->prenom. " ". $this->sexe. " ". $this->dateDeNaissance. "<br>";
+        return $this->getNom(). " ". $this->getPrenom(). " ". $this->getSexe(). " ". $this->getDateDeNaissance(). "<br>";
     }
 }
 

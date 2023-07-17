@@ -10,6 +10,9 @@ class Casting {
         $this->film = $film;
         $this->role = $role;
         $this->acteur = $acteur;
+        $this->acteur->ajouterCasting($this);
+        $this->role->ajouterCasting($this);
+        $this->film->ajouterCasting($this);
     }
 
     // Getter et setter
@@ -44,10 +47,14 @@ class Casting {
         return $this;
     }
 
-    // // Fonction ajouterFilm
-    // public function ajouterFilm($film) {
-    //     $this->films[] = $film;
-    // }
+    public function afficherCastings() {
+        echo $this->getFilm()->getTitre(). " ". $this->getActeur()->getNom(). "<br>";
+    }
+
+    // Méthode magique __toString
+    public function __toString() {
+        return $this->getFilm()->getTitre(). " ". $this->getRole(). " ". $this->getActeur()->getNom();
+    }
 }
 
 ?>

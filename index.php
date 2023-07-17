@@ -44,21 +44,24 @@ require 'Casting.php';
     $film3 = new Film("Interstellar", '10-10-2014', 169, $realisateur1, "Le film raconte les aventures d’un groupe d’explorateurs qui utilisent une faille récemment découverte dans l’espace-temps afin de repousser les limites humaines et partir à la conquête des distances astronomiques dans un voyage interstellaire.");
 
     // On instancie les rôles
-    $role1 = new Role("Rick Deckard", $film1, $acteur1);
-    $role2 = new Role("Batman", $film2, $acteur2);
-    $role3 = new Role("Catwoman", $film2, $acteur3);
-    $role4 = new Role("Amelia Brand", $film3, $acteur3);
+    $role1 = new Role("Rick Deckard");
+    $role2 = new Role("Batman");
+    $role3 = new Role("Catwoman");
+    $role4 = new Role("Amelia Brand");
 
     
     // On instancie le casting
     $casting1 = new Casting($film1, $role1, $acteur1);
     $casting2 = new Casting($film2, $role2, $acteur2);
     $casting3 = new Casting($film2, $role3, $acteur3);
+    $casting4 = new Casting($film3, $role4, $acteur3);
 
     // On veut afficher toutes les infos des films
+    echo "Castings : <br>";
     $film1->afficherFilms();
     $film2->afficherFilms();
     $film3->afficherFilms();
+    echo "<br>";
 
     // On veut lister des acteurs ayant incarné un rôle précis
     // ex: les acteurs ayant joué le rôle de Batman : Michael Keaton, Val Kilmer, George Clooney, ...
@@ -75,7 +78,7 @@ require 'Casting.php';
     $role2->afficherRole();
     $role3->afficherRole();
     $role4->afficherRole();
-    echo "<br>";
+    echo "<br><br>";
 
 
     // On veut lister les films par genre
@@ -91,7 +94,7 @@ require 'Casting.php';
     $acteur1->afficherActeurs();
     $acteur2->afficherActeurs();
     $acteur3->afficherActeurs();
-    echo "<br>";
+    echo "<br><br>";
 
 
     // On veut lister la filmographie d'un réalisateur
@@ -99,8 +102,6 @@ require 'Casting.php';
     echo "Réalisateurs : <br>";
     $realisateur1->afficherRealisateurFilm();
     $realisateur2->afficherRealisateurFilm();
-
-
 
 
     // $dureeFilmEnHeures = 2;

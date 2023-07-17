@@ -17,8 +17,9 @@ class Acteur extends Personne {
     // Méthodes
 
     // ajouter film à la liste des films d'un acteur
-    public function ajouterActeurs(Film $film) {
-        $this->castings[] = $casting;
+    public function ajouterCasting(Casting $casting)
+    {
+        $this->castings[]=$casting;
     }
 
     // Afficher acteur
@@ -32,11 +33,11 @@ class Acteur extends Personne {
     
     // On récupère les informations sur la personne pour l'attribuer à l'acteur ou actrice
     public function afficherActeurs() {
-       echo $this->getNom(). " ". $this->getPrenom(). " ". $this->getSexe(). " ". $this->getDateDeNaissance(). "<br>";
+    //    echo $this->getNom(). " ". $this->getPrenom(). " ". $this->getSexe(). " ". $this->getDateDeNaissance(). "<br>";
 
-       // Pour chaque film, ajouter l'acteur
+       // Pour chaque castings, ajouter le titre du film, le titre du role et le nom de l'acteur
        foreach ($this->castings as $casting) {
-        echo $casting;
+        echo $casting. "<br>";
        }
     }
 
